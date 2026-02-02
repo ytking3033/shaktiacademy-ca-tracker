@@ -1,0 +1,1704 @@
+navbarjs)
+
+class CustomNavbar extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.innerHTML = `
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        :host {
+          display: block;
+          font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        nav {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid #E0E0E0;
+          z-index: 1000;
+          padding: 0 1rem;
+        }
+        
+        .nav-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 70px;
+        }
+        
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          text-decoration: none;
+          color: #1B262C;
+          font-weight: 700;
+          font-size: 1.5rem;
+        }
+        
+        .logo-icon {
+          width: 40px;
+          height: 40px;
+          background: linear-gradient(135deg, #3282B8 0%, #BBE1FA 100%);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+        }
+        
+        .nav-links {
+          display: flex;
+          gap: 2rem;
+          align-items: center;
+        }
+        
+        .nav-links a {
+          text-decoration: none;
+          color: #1B262C;
+          font-weight: 500;
+          transition: color 0.3s;
+          position: relative;
+        }
+        
+        .nav-links a:hover {
+          color: #3282B8;
+        }
+        
+        .nav-links a::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: #3282B8;
+          transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+          width: 100%;
+        }
+        
+        .nav-links a.active {
+          color: #3282B8;
+        }
+        
+        .nav-links a.active::after {
+          width: 100%;
+        }
+        
+        .cta-btn {
+          background: #3282B8;
+          color: white !important;
+          padding: 0.5rem 1.5rem;
+          border-radius: 9999px;
+          transition: all 0.3s !important;
+        }
+        
+        .cta-btn:hover {
+          background: #1B262C;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(50, 130, 184, 0.3);
+        }
+        
+        .cta-btn::after {
+          display: none !important;
+        }
+        
+        .mobile-menu-btn {
+          display: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0.5rem;
+          color: #1B262C;
+        }
+        
+        @media (max-width: 768px) {
+          .nav-links {
+            display: none;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 1rem;
+            gap: 1rem;
+            border-bottom: 1px solid #E0E0E0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          }
+          
+          .nav-links.active {
+            display: flex;
+          }
+          
+          .mobile-menu-btn {
+            display: block;
+          }
+          
+          .cta-btn {
+            width: 100%;
+            text-align: center;
+          }
+        }
+      </style>
+      
+      <nav>
+        <div class="nav-container">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <span>ShaktiAcademy</span>
+          </a>
+          
+          <button class="mobile-menu-btn" onclick="this.nextElementSibling.classList.toggle('active')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21"
+
+
+
+dashboard
+
+
+
+
+
+
+class CustomNavbar extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.innerHTML = `
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        :host {
+          display: block;
+          font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        nav {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid #E0E0E0;
+          z-index: 1000;
+          padding: 0 1rem;
+        }
+        
+        .nav-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 70px;
+        }
+        
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          text-decoration: none;
+          color: #1B262C;
+          font-weight: 700;
+          font-size: 1.5rem;
+        }
+        
+        .logo-icon {
+          width: 40px;
+          height: 40px;
+          background: linear-gradient(135deg, #3282B8 0%, #BBE1FA 100%);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+        }
+        
+        .nav-links {
+          display: flex;
+          gap: 2rem;
+          align-items: center;
+        }
+        
+        .nav-links a {
+          text-decoration: none;
+          color: #1B262C;
+          font-weight: 500;
+          transition: color 0.3s;
+          position: relative;
+        }
+        
+        .nav-links a:hover {
+          color: #3282B8;
+        }
+        
+        .nav-links a::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: #3282B8;
+          transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+          width: 100%;
+        }
+        
+        .nav-links a.active {
+          color: #3282B8;
+        }
+        
+        .nav-links a.active::after {
+          width: 100%;
+        }
+        
+        .cta-btn {
+          background: #3282B8;
+          color: white !important;
+          padding: 0.5rem 1.5rem;
+          border-radius: 9999px;
+          transition: all 0.3s !important;
+        }
+        
+        .cta-btn:hover {
+          background: #1B262C;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(50, 130, 184, 0.3);
+        }
+        
+        .cta-btn::after {
+          display: none !important;
+        }
+        
+        .mobile-menu-btn {
+          display: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0.5rem;
+          color: #1B262C;
+        }
+        
+        @media (max-width: 768px) {
+          .nav-links {
+            display: none;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 1rem;
+            gap: 1rem;
+            border-bottom: 1px solid #E0E0E0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          }
+          
+          .nav-links.active {
+            display: flex;
+          }
+          
+          .mobile-menu-btn {
+            display: block;
+          }
+          
+          .cta-btn {
+            width: 100%;
+            text-align: center;
+          }
+        }
+      </style>
+      
+      <nav>
+        <div class="nav-container">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <span>ShaktiAcademy</span>
+          </a>
+          
+          <button class="mobile-menu-btn" onclick="this.nextElementSibling.classList.toggle('active')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21"
+
+
+
+index.html
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShaktiAcademy – CA Foundation Smart Tracker</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3282B8',
+                        secondary: '#BBE1FA',
+                        dark: '#1B262C',
+                        light: '#F1F6F9',
+                        shadow: '#E0E0E0'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-dark font-sans antialiased overflow-x-hidden">
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    
+    <custom-navbar></custom-navbar>
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Floating Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="floating-icon absolute top-20 left-10 text-primary/20 animate-float-slow">
+                <i data-feather="book-open" class="w-16 h-16"></i>
+            </div>
+            <div class="floating-icon absolute top-40 right-20 text-primary/15 animate-float-medium">
+                <i data-feather="pie-chart" class="w-20 h-20"></i>
+            </div>
+            <div class="floating-icon absolute bottom-32 left-20 text-primary/10 animate-float-fast">
+                <i data-feather="dollar-sign" class="w-14 h-14"></i>
+            </div>
+            <div class="floating-icon absolute bottom-20 right-10 text-primary/20 animate-float-slow">
+                <i data-feather="edit-3" class="w-12 h-12"></i>
+            </div>
+            <div class="floating-icon absolute top-1/3 left-1/4 text-primary/10 animate-float-medium">
+                <i data-feather="calculator" class="w-16 h-16"></i>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- 3D Illustration Composition -->
+                <div class="relative mb-12 h-64 md:h-80">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="relative w-full max-w-lg">
+                            <!-- Central Student Figure Representation -->
+                            <div class="bg-gradient-to-br from-secondary to-white rounded-3xl p-8 shadow-2xl transform hover:scale-105 transition-transform duration-500 border border-shadow">
+                                <div class="flex justify-center space-x-4 mb-4">
+                                    <div class="bg-white p-3 rounded-2xl shadow-lg animate-bounce-slow">
+                                        <i data-feather="book" class="w-8 h-8 text-primary"></i>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-2xl shadow-lg animate-bounce-medium">
+                                        <i data-feather="pen-tool" class="w-8 h-8 text-primary"></i>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-2xl shadow-lg animate-bounce-fast">
+                                        <i data-feather="bar-chart-2" class="w-8 h-8 text-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-6xl mb-2">🎓</div>
+                                    <p class="text-primary font-semibold">CA Foundation Aspirant</p>
+                                </div>
+                            </div>
+                            <!-- Floating Elements Around -->
+                            <div class="absolute -top-4 -right-4 bg-white p-2 rounded-xl shadow-lg animate-float-fast">
+                                <i data-feather="check-circle" class="w-6 h-6 text-green-500"></i>
+                            </div>
+                            <div class="absolute -bottom-4 -left-4 bg-white p-2 rounded-xl shadow-lg animate-float-slow">
+                                <i data-feather="target" class="w-6 h-6 text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-dark animate-fade-in-up">
+                    CA Foundation Smart Tracker & Tests
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-10 animate-fade-in-up delay-100">
+                    Track study. Practice MCQs. Improve scores.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-200">
+                    <a href="tests.html" class="ripple-btn bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-2">
+                        <i data-feather="play-circle" class="w-5 h-5"></i>
+                        Start Free
+                    </a>
+                    <a href="dashboard.html" class="ripple-btn bg-white text-primary border-2 border-primary px-8 py-4 rounded-full font-semibold text-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-2">
+                        <i data-feather="layout" class="w-5 h-5"></i>
+                        View Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-light/30">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-shadow group">
+                    <div class="w-16 h-16 bg-secondary/30 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <i data-feather="calendar" class="w-8 h-8 text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">Daily Study Tracker</h3>
+                    <p class="text-gray-600">Log your daily study hours and maintain consistent preparation with smart reminders.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-shadow group">
+                    <div class="w-16 h-16 bg-secondary/30 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <i data-feather="check-square" class="w-8 h-8 text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">Chapter-wise MCQ Tests</h3>
+                    <p class="text-gray-600">ICAI pattern MCQs for all 4 subjects with instant feedback and explanations.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-shadow group">
+                    <div class="w-16 h-16 bg-secondary/30 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <i data-feather="trending-up" class="w-8 h-8 text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">Performance Analytics</h3>
+                    <p class="text-gray-600">Visualize your progress with detailed charts and identify weak areas instantly.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-shadow group">
+                    <div class="w-16 h-16 bg-secondary/30 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <i data-feather="award" class="w-8 h-8 text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-dark">Built by CA Students</h3>
+                    <p class="text-gray-600">Designed by cleared CA finalists who understand the struggle and strategy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <custom-footer></custom-footer>
+    
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
+
+
+script.js 
+
+
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            
+            // Trigger counter animation if it's a counter
+            if (entry.target.classList.contains('counter')) {
+                animateCounter(entry.target);
+            }
+            
+            // Trigger progress bar animation
+            if (entry.target.classList.contains('progress-bar')) {
+                const width = entry.target.getAttribute('data-width');
+                setTimeout(() => {
+                    entry.target.style.width = width;
+                }, 200);
+            }
+            
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Initialize animations on load
+document.addEventListener('DOMContentLoaded', () => {
+    // Observe all animated elements
+    document.querySelectorAll('.animate-fade-in, .animate-slide-up, .counter, .progress-bar').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Initialize feather icons
+    if (typeof feather !== 'undefined') {
+        feather.replace();
+    }
+    
+    // Initialize benefit items animation on upgrade page
+    if (document.querySelector('.pricing-card')) {
+        setTimeout(() => {
+            document.querySelectorAll('.benefit-item').forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.remove('opacity-0');
+                }, index * 100);
+            });
+        }, 500);
+    }
+});
+
+// Counter Animation
+function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    
+    const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current);
+        }
+    }, 16);
+}
+
+// Test Data
+const chaptersData = {
+    accounts: ['Basic Accounting', 'Bank Reconciliation', 'Depreciation', 'Bills of Exchange', 'Inventories', 'Trial Balance', 'Final Accounts', 'Consignment', 'Joint Venture', 'Partnership', 'Company Accounts', 'Average Due Date'],
+    law: ['Indian Contract Act', 'Sale of Goods Act', 'Partnership Act', 'LLP Act', 'Companies Act', 'Negotiable Instruments', 'General Clauses', 'Interpretation of Statutes'],
+    maths: ['Ratio & Proportion', 'Indices', 'Logarithms', 'Linear Equations', 'Quadratic Equations', 'Permutations', 'Combinations', 'Sequence & Series', 'Sets', 'Relations', 'Calculus', 'Statistics', 'Probability', 'Correlation', 'Regression'],
+    economics: ['Demand & Supply', 'Elasticity', 'Cost of Production', 'Market Structures', 'National Income', 'Money & Banking', 'Fiscal Policy', 'International Trade', 'Business Organizations', 'Business Environment']
+};
+
+let currentSubject = '';
+let currentChapter = '';
+let currentQuestion = 0;
+let score = 0;
+let timerInterval;
+let timeLeft = 900; // 15 minutes in seconds
+let questions = [];
+let userAnswers = [];
+
+// Show chapters for selected subject
+function showChapters(subject) {
+    currentSubject = subject;
+    const subjectNames = {
+        accounts: 'Principles & Practice of Accounting',
+        law: 'Business Laws & Correspondence',
+        maths: 'Quantitative Aptitude',
+        economics: 'Business Economics'
+    };
+    
+    document.getElementById('subject-selection').classList.add('hidden');
+    document.getElementById('chapter-selection').classList.remove('hidden');
+    document.getElementById('selected-subject-title').textContent = subjectNames[subject] + ' – Chapters';
+    
+    const grid = document.getElementById('chapters-grid');
+    grid.innerHTML = '';
+    
+    chaptersData[subject].forEach((chapter, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'ripple-btn bg-white p-4 rounded-xl shadow-md border border-shadow hover:shadow-lg hover:border-primary transition-all text-left group';
+        btn.innerHTML = `
+            <div class="flex items-center justify-between mb-2">
+                <span class="text-xs text-gray-500">Ch. ${index + 1}</span>
+                <i data-feather="play-circle" class="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity"></i>
+            </div>
+            <h4 class="font-semibold text-sm">${chapter}</h4>
+        `;
+        btn.onclick = () => startTest(subject, chapter);
+        grid.appendChild(btn);
+    });
+    
+    feather.replace();
+}
+
+function backToSubjects() {
+    document.getElementById('chapter-selection').classList.add('hidden');
+    document.getElementById('subject-selection').classList.remove('hidden');
+    currentSubject = '';
+}
+
+// Generate Mock Questions
+function generateQuestions(subject) {
+    const templates = [
+        { q: "Which of the following is a characteristic of double entry system?", options: ["Single aspect", "Dual aspect", "No aspect", "Triple aspect"], correct: 1 },
+        { q: "In accounting, the term 'Debit' means:", options: ["Increase in liability", "Decrease in asset", "Left side of account", "Right side of account"], correct: 2 },
+        { q: "The accounting equation is:", options: ["Assets = Liabilities + Capital", "Assets = Liabilities - Capital", "Assets + Liabilities = Capital", "Assets = Capital only"], correct: 0 },
+        { q: "Which account is increased by credit?", options: ["Cash", "Furniture", "Creditors", "Drawings"], correct: 2 },
+        { q: "Journal entries are recorded in:", options: ["Ledger", "Balance Sheet", "Journal", "Trial Balance"], correct: 2 }
+    ];
+    
+    // Shuffle and return 10 questions
+    return templates.sort(() => 0.5 - Math.random()).slice(0, 5);
+}
+
+function startTest(subject, chapter) {
+    currentChapter = chapter;
+    currentQuestion = 0;
+    score = 0;
+    userAnswers = [];
+    timeLeft = 900;
+    questions = generateQuestions(subject);
+    
+    document.getElementById('chapter-selection').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    document.getElementById('test-title').textContent = chapter;
+    document.getElementById('q-total').textContent = questions.length;
+    
+    startTimer();
+    renderQuestion();
+}
+
+function startTimer() {
+    updateTimerDisplay();
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+        
+        // Update progress bar
+        const percentage = (timeLeft / 900) * 100;
+        document.getElementById('timer-bar').style.width = percentage + '%';
+        
+        if (timeLeft <= 0) {
+            submitTest();
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    document.getElementById('timer').textContent = 
+        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+function renderQuestion() {
+    const q = questions[currentQuestion];
+    document.getElementById('q-current').textContent = currentQuestion + 1;
+    document.getElementById('question-text').textContent = q.q;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, idx) => {
+        const div = document.createElement('div');
+        div.className = 'relative';
+        div.innerHTML = `
+            <input type="radio" name="option" id="opt${idx}" value="${idx}" class="option-input hidden" 
+                ${userAnswers[currentQuestion] === idx ? 'checked' : ''}>
+            <label for="opt${idx}" class="option-label block p-4 rounded-xl border-2 border-gray-200 cursor-pointer hover:border-primary transition-all">
+                <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <div class="w-3 h-3 rounded-full bg-primary opacity-0 transition-opacity"></div>
+                    </div>
+                    <span>${opt}</span>
+                </div>
+            </label>
+        `;
+        container.appendChild(div);
+    });
+    
+    // Update radio button visual state
+    document.querySelectorAll('.option-input').forEach(input => {
+        input.addEventListener('change', function() {
+            document.querySelectorAll('.option-label div div').forEach(d => d.classList.add('opacity-0'));
+            this.nextElementSibling.querySelector('div div').classList.remove('opacity-0');
+        });
+    });
+    
+    // Update buttons
+    document.getElementById('btn-prev').disabled = currentQuestion === 0;
+    
+    if (currentQuestion === questions.length - 1) {
+        document.getElementById('btn-next').classList.add('hidden');
+        document.getElementById('btn-submit').classList.remove('hidden');
+    } else {
+        document.getElementById('btn-next').classList.remove('hidden');
+        document.getElementById('btn-submit').classList.add('hidden');
+    }
+}
+
+function nextQuestion() {
+    saveAnswer();
+    if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+    }
+}
+
+function previousQuestion() {
+    saveAnswer();
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        renderQuestion();
+    }
+}
+
+function saveAnswer() {
+    const selected = document.querySelector('input[name="option"]:checked');
+    if (selected) {
+        userAnswers[currentQuestion] = parseInt(selected.value);
+    }
+}
+
+function submitTest() {
+    clearInterval(timerInterval);
+    saveAnswer();
+    
+    // Calculate score
+    score = 0;
+    userAnswers.forEach((ans, idx) => {
+        if (ans === questions[idx].correct) score++;
+    });
+    
+    const percentage = Math.round((score / questions.length) * 100);
+    
+    document.getElementById('test-interface').classList.add('hidden');
+    document.getElementById('results-section').classList.remove('hidden');
+    
+    // Animate results
+    setTimeout(() => {
+        document.getElementById('result-score').textContent = percentage;
+        document.getElementById('result-correct').textContent = score;
+        document.getElementById('result-incorrect').textContent = questions.length - score;
+        
+        if (percentage >= 60) {
+            triggerConfetti();
+        }
+    }, 300);
+}
+
+function retakeTest() {
+    document.getElementById('results-section').classList.add('hidden');
+    startTest(currentSubject, currentChapter);
+}
+
+// Confetti Effect
+function triggerConfetti() {
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    
+    const pieces = [];
+    const colors = ['#3282B8', '#BBE1FA', '#1B262C', '#F1F6F9', '#FFD700'];
+    
+    for (let i = 0; i < 100; i++) {
+        pieces.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height - canvas.height,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            size: Math.random() * 10 + 5,
+            speed: Math.random() * 3 + 2,
+            angle: Math.random() * 360,
+            spin: Math.random() * 10 - 5
+        });
+    }
+    
+    let animationId;
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        pieces.forEach(p => {
+            p.y += p.speed;
+            p.angle += p.spin;
+            
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.angle * Math.PI / 180);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+            ctx.restore();
+            
+            if (p.y > canvas.height) {
+                p.y = -20;
+                p.x = Math.random() * canvas.width;
+            }
+        });
+        
+        animationId = requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    // Stop after 5 seconds
+    setTimeout(() => {
+        cancelAnimationFrame(animationId);
+    }, 5000);
+}
+
+// Payment Integration Placeholder
+function initiatePayment() {
+    const btn = event.target.closest('button');
+    btn.classList.add('loading');
+    
+    // Simulate Razorpay integration
+    setTimeout(() => {
+        btn.classList.remove('loading');
+        alert('Redirecting to Razorpay payment gateway...\n\nIn production, this would open Razorpay checkout with:\n- Amount: ₹499\n- Currency: INR\n- Description: ShaktiAcademy Pro Subscription');
+    }, 1500);
+}
+
+// Mobile menu toggle (if needed)
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+
+
+stylecss  
+
+
+
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            
+            // Trigger counter animation if it's a counter
+            if (entry.target.classList.contains('counter')) {
+                animateCounter(entry.target);
+            }
+            
+            // Trigger progress bar animation
+            if (entry.target.classList.contains('progress-bar')) {
+                const width = entry.target.getAttribute('data-width');
+                setTimeout(() => {
+                    entry.target.style.width = width;
+                }, 200);
+            }
+            
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Initialize animations on load
+document.addEventListener('DOMContentLoaded', () => {
+    // Observe all animated elements
+    document.querySelectorAll('.animate-fade-in, .animate-slide-up, .counter, .progress-bar').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Initialize feather icons
+    if (typeof feather !== 'undefined') {
+        feather.replace();
+    }
+    
+    // Initialize benefit items animation on upgrade page
+    if (document.querySelector('.pricing-card')) {
+        setTimeout(() => {
+            document.querySelectorAll('.benefit-item').forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.remove('opacity-0');
+                }, index * 100);
+            });
+        }, 500);
+    }
+});
+
+// Counter Animation
+function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    
+    const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current);
+        }
+    }, 16);
+}
+
+// Test Data
+const chaptersData = {
+    accounts: ['Basic Accounting', 'Bank Reconciliation', 'Depreciation', 'Bills of Exchange', 'Inventories', 'Trial Balance', 'Final Accounts', 'Consignment', 'Joint Venture', 'Partnership', 'Company Accounts', 'Average Due Date'],
+    law: ['Indian Contract Act', 'Sale of Goods Act', 'Partnership Act', 'LLP Act', 'Companies Act', 'Negotiable Instruments', 'General Clauses', 'Interpretation of Statutes'],
+    maths: ['Ratio & Proportion', 'Indices', 'Logarithms', 'Linear Equations', 'Quadratic Equations', 'Permutations', 'Combinations', 'Sequence & Series', 'Sets', 'Relations', 'Calculus', 'Statistics', 'Probability', 'Correlation', 'Regression'],
+    economics: ['Demand & Supply', 'Elasticity', 'Cost of Production', 'Market Structures', 'National Income', 'Money & Banking', 'Fiscal Policy', 'International Trade', 'Business Organizations', 'Business Environment']
+};
+
+let currentSubject = '';
+let currentChapter = '';
+let currentQuestion = 0;
+let score = 0;
+let timerInterval;
+let timeLeft = 900; // 15 minutes in seconds
+let questions = [];
+let userAnswers = [];
+
+// Show chapters for selected subject
+function showChapters(subject) {
+    currentSubject = subject;
+    const subjectNames = {
+        accounts: 'Principles & Practice of Accounting',
+        law: 'Business Laws & Correspondence',
+        maths: 'Quantitative Aptitude',
+        economics: 'Business Economics'
+    };
+    
+    document.getElementById('subject-selection').classList.add('hidden');
+    document.getElementById('chapter-selection').classList.remove('hidden');
+    document.getElementById('selected-subject-title').textContent = subjectNames[subject] + ' – Chapters';
+    
+    const grid = document.getElementById('chapters-grid');
+    grid.innerHTML = '';
+    
+    chaptersData[subject].forEach((chapter, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'ripple-btn bg-white p-4 rounded-xl shadow-md border border-shadow hover:shadow-lg hover:border-primary transition-all text-left group';
+        btn.innerHTML = `
+            <div class="flex items-center justify-between mb-2">
+                <span class="text-xs text-gray-500">Ch. ${index + 1}</span>
+                <i data-feather="play-circle" class="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity"></i>
+            </div>
+            <h4 class="font-semibold text-sm">${chapter}</h4>
+        `;
+        btn.onclick = () => startTest(subject, chapter);
+        grid.appendChild(btn);
+    });
+    
+    feather.replace();
+}
+
+function backToSubjects() {
+    document.getElementById('chapter-selection').classList.add('hidden');
+    document.getElementById('subject-selection').classList.remove('hidden');
+    currentSubject = '';
+}
+
+// Generate Mock Questions
+function generateQuestions(subject) {
+    const templates = [
+        { q: "Which of the following is a characteristic of double entry system?", options: ["Single aspect", "Dual aspect", "No aspect", "Triple aspect"], correct: 1 },
+        { q: "In accounting, the term 'Debit' means:", options: ["Increase in liability", "Decrease in asset", "Left side of account", "Right side of account"], correct: 2 },
+        { q: "The accounting equation is:", options: ["Assets = Liabilities + Capital", "Assets = Liabilities - Capital", "Assets + Liabilities = Capital", "Assets = Capital only"], correct: 0 },
+        { q: "Which account is increased by credit?", options: ["Cash", "Furniture", "Creditors", "Drawings"], correct: 2 },
+        { q: "Journal entries are recorded in:", options: ["Ledger", "Balance Sheet", "Journal", "Trial Balance"], correct: 2 }
+    ];
+    
+    // Shuffle and return 10 questions
+    return templates.sort(() => 0.5 - Math.random()).slice(0, 5);
+}
+
+function startTest(subject, chapter) {
+    currentChapter = chapter;
+    currentQuestion = 0;
+    score = 0;
+    userAnswers = [];
+    timeLeft = 900;
+    questions = generateQuestions(subject);
+    
+    document.getElementById('chapter-selection').classList.add('hidden');
+    document.getElementById('test-interface').classList.remove('hidden');
+    document.getElementById('test-title').textContent = chapter;
+    document.getElementById('q-total').textContent = questions.length;
+    
+    startTimer();
+    renderQuestion();
+}
+
+function startTimer() {
+    updateTimerDisplay();
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+        
+        // Update progress bar
+        const percentage = (timeLeft / 900) * 100;
+        document.getElementById('timer-bar').style.width = percentage + '%';
+        
+        if (timeLeft <= 0) {
+            submitTest();
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    document.getElementById('timer').textContent = 
+        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+function renderQuestion() {
+    const q = questions[currentQuestion];
+    document.getElementById('q-current').textContent = currentQuestion + 1;
+    document.getElementById('question-text').textContent = q.q;
+    
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    
+    q.options.forEach((opt, idx) => {
+        const div = document.createElement('div');
+        div.className = 'relative';
+        div.innerHTML = `
+            <input type="radio" name="option" id="opt${idx}" value="${idx}" class="option-input hidden" 
+                ${userAnswers[currentQuestion] === idx ? 'checked' : ''}>
+            <label for="opt${idx}" class="option-label block p-4 rounded-xl border-2 border-gray-200 cursor-pointer hover:border-primary transition-all">
+                <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                        <div class="w-3 h-3 rounded-full bg-primary opacity-0 transition-opacity"></div>
+                    </div>
+                    <span>${opt}</span>
+                </div>
+            </label>
+        `;
+        container.appendChild(div);
+    });
+    
+    // Update radio button visual state
+    document.querySelectorAll('.option-input').forEach(input => {
+        input.addEventListener('change', function() {
+            document.querySelectorAll('.option-label div div').forEach(d => d.classList.add('opacity-0'));
+            this.nextElementSibling.querySelector('div div').classList.remove('opacity-0');
+        });
+    });
+    
+    // Update buttons
+    document.getElementById('btn-prev').disabled = currentQuestion === 0;
+    
+    if (currentQuestion === questions.length - 1) {
+        document.getElementById('btn-next').classList.add('hidden');
+        document.getElementById('btn-submit').classList.remove('hidden');
+    } else {
+        document.getElementById('btn-next').classList.remove('hidden');
+        document.getElementById('btn-submit').classList.add('hidden');
+    }
+}
+
+function nextQuestion() {
+    saveAnswer();
+    if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+    }
+}
+
+function previousQuestion() {
+    saveAnswer();
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        renderQuestion();
+    }
+}
+
+function saveAnswer() {
+    const selected = document.querySelector('input[name="option"]:checked');
+    if (selected) {
+        userAnswers[currentQuestion] = parseInt(selected.value);
+    }
+}
+
+function submitTest() {
+    clearInterval(timerInterval);
+    saveAnswer();
+    
+    // Calculate score
+    score = 0;
+    userAnswers.forEach((ans, idx) => {
+        if (ans === questions[idx].correct) score++;
+    });
+    
+    const percentage = Math.round((score / questions.length) * 100);
+    
+    document.getElementById('test-interface').classList.add('hidden');
+    document.getElementById('results-section').classList.remove('hidden');
+    
+    // Animate results
+    setTimeout(() => {
+        document.getElementById('result-score').textContent = percentage;
+        document.getElementById('result-correct').textContent = score;
+        document.getElementById('result-incorrect').textContent = questions.length - score;
+        
+        if (percentage >= 60) {
+            triggerConfetti();
+        }
+    }, 300);
+}
+
+function retakeTest() {
+    document.getElementById('results-section').classList.add('hidden');
+    startTest(currentSubject, currentChapter);
+}
+
+// Confetti Effect
+function triggerConfetti() {
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    
+    const pieces = [];
+    const colors = ['#3282B8', '#BBE1FA', '#1B262C', '#F1F6F9', '#FFD700'];
+    
+    for (let i = 0; i < 100; i++) {
+        pieces.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height - canvas.height,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            size: Math.random() * 10 + 5,
+            speed: Math.random() * 3 + 2,
+            angle: Math.random() * 360,
+            spin: Math.random() * 10 - 5
+        });
+    }
+    
+    let animationId;
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        pieces.forEach(p => {
+            p.y += p.speed;
+            p.angle += p.spin;
+            
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.angle * Math.PI / 180);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+            ctx.restore();
+            
+            if (p.y > canvas.height) {
+                p.y = -20;
+                p.x = Math.random() * canvas.width;
+            }
+        });
+        
+        animationId = requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    // Stop after 5 seconds
+    setTimeout(() => {
+        cancelAnimationFrame(animationId);
+    }, 5000);
+}
+
+// Payment Integration Placeholder
+function initiatePayment() {
+    const btn = event.target.closest('button');
+    btn.classList.add('loading');
+    
+    // Simulate Razorpay integration
+    setTimeout(() => {
+        btn.classList.remove('loading');
+        alert('Redirecting to Razorpay payment gateway...\n\nIn production, this would open Razorpay checkout with:\n- Amount: ₹499\n- Currency: INR\n- Description: ShaktiAcademy Pro Subscription');
+    }, 1500);
+}
+
+// Mobile menu toggle (if needed)
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+
+testhtml
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests – ShaktiAcademy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3282B8',
+                        secondary: '#BBE1FA',
+                        dark: '#1B262C',
+                        light: '#F1F6F9',
+                        shadow: '#E0E0E0'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-dark font-sans antialiased">
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    
+    <custom-navbar></custom-navbar>
+
+    <main class="pt-24 pb-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Subject Selection -->
+            <div id="subject-selection" class="animate-fade-in">
+                <h1 class="text-3xl md:text-4xl font-bold mb-2 text-center">Choose Subject</h1>
+                <p class="text-gray-600 text-center mb-10">Select a subject to view chapter-wise tests</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                    <div onclick="showChapters('accounts')" class="subject-select-card cursor-pointer bg-white rounded-2xl p-8 shadow-lg border border-shadow hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i data-feather="book" class="w-7 h-7 text-primary group-hover:text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Accounting</h3>
+                                <p class="text-sm text-gray-500">Principles & Practice</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-600">
+                            <span>12 Chapters</span>
+                            <span class="text-primary font-semibold">45 Tests</span>
+                        </div>
+                    </div>
+
+                    <div onclick="showChapters('law')" class="subject-select-card cursor-pointer bg-white rounded-2xl p-8 shadow-lg border border-shadow hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i data-feather="shield" class="w-7 h-7 text-primary group-hover:text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Business Law</h3>
+                                <p class="text-sm text-gray-500">Laws & Correspondence</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-600">
+                            <span>8 Chapters</span>
+                            <span class="text-primary font-semibold">32 Tests</span>
+                        </div>
+                    </div>
+
+                    <div onclick="showChapters('maths')" class="subject-select-card cursor-pointer bg-white rounded-2xl p-8 shadow-lg border border-shadow hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i data-feather="percent" class="w-7 h-7 text-primary group-hover:text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Quantitative Aptitude</h3>
+                                <p class="text-sm text-gray-500">Maths & Statistics</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-600">
+                            <span>15 Chapters</span>
+                            <span class="text-primary font-semibold">60 Tests</span>
+                        </div>
+                    </div>
+
+                    <div onclick="showChapters('economics')" class="subject-select-card cursor-pointer bg-white rounded-2xl p-8 shadow-lg border border-shadow hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i data-feather="trending-up" class="w-7 h-7 text-primary group-hover:text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Business Economics</h3>
+                                <p class="text-sm text-gray-500">Eco & Commercial Knowledge</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-600">
+                            <span>10 Chapters</span>
+                            <span class="text-primary font-semibold">40 Tests</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter Selection (Hidden initially) -->
+            <div id="chapter-selection" class="hidden animate-fade-in">
+                <button onclick="backToSubjects()" class="mb-6 flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
+                    <i data-feather="arrow-left" class="w-5 h-5"></i> Back to Subjects
+                </button>
+                <h2 id="selected-subject-title" class="text-2xl font-bold mb-6">Accounting Chapters</h2>
+                
+                <div id="chapters-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <!-- Chapters injected via JS -->
+                </div>
+            </div>
+
+            <!-- Test Interface (Hidden initially) -->
+            <div id="test-interface" class="hidden animate-fade-in max-w-3xl mx-auto">
+                <div class="bg-white rounded-3xl shadow-xl border border-shadow overflow-hidden">
+                    <!-- Timer Header -->
+                    <div class="bg-primary text-white p-4 flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <i data-feather="file-text" class="w-5 h-5"></i>
+                            <span id="test-title" class="font-semibold">Chapter 1: Basic Accounting</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/20 px-4 py-2 rounded-full">
+                            <i data-feather="clock" class="w-4 h-4"></i>
+                            <span id="timer" class="font-mono font-bold">15:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Timer Progress -->
+                    <div class="h-1 bg-gray-200 w-full">
+                        <div id="timer-bar" class="h-full bg-secondary transition-all duration-1000" style="width: 100%"></div>
+                    </div>
+
+                    <!-- Question Area -->
+                    <div class="p-6 md:p-8">
+                        <div class="mb-6">
+                            <span class="text-sm text-gray-500 mb-2 block">Question <span id="q-current">1</span> of <span id="q-total">20</span></span>
+                            <h3 id="question-text" class="text-lg font-semibold mb-6">Which of the following is not a characteristic of double entry system?</h3>
+                            
+                            <div id="options-container" class="space-y-3">
+                                <!-- Options injected via JS -->
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center pt-6 border-t border-gray-100">
+                            <button onclick="previousQuestion()" class="px-6 py-2 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors disabled:opacity-50" id="btn-prev" disabled>
+                                Previous
+                            </button>
+                            <button onclick="nextQuestion()" class="ripple-btn bg-primary text-white px-8 py-2 rounded-full font-semibold hover:shadow-lg transition-all" id="btn-next">
+                                Next
+                            </button>
+                            <button onclick="submitTest()" class="hidden ripple-btn bg-green-500 text-white px-8 py-2 rounded-full font-semibold hover:shadow-lg transition-all" id="btn-submit">
+                                Submit Test
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section (Hidden initially) -->
+            <div id="results-section" class="hidden animate-fade-in max-w-2xl mx-auto text-center">
+                <div class="bg-white rounded-3xl shadow-xl border border-shadow p-8 md:p-12 relative overflow-hidden">
+                    <!-- Confetti Canvas -->
+                    <canvas id="confetti-canvas" class="absolute inset-0 pointer-events-none"></canvas>
+                    
+                    <div class="relative z-10">
+                        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+                            <i data-feather="check-circle" class="w-12 h-12 text-green-500"></i>
+                        </div>
+                        
+                        <h2 class="text-3xl font-bold mb-2">Test Completed!</h2>
+                        <p class="text-gray-600 mb-8">Great effort! Here's how you performed</p>
+
+                        <div class="grid grid-cols-3 gap-4 mb-8">
+                            <div class="bg-light rounded-2xl p-4">
+                                <p class="text-sm text-gray-500 mb-1">Score</p>
+                                <p class="text-3xl font-bold text-primary"><span id="result-score">0</span>%</p>
+                            </div>
+                            <div class="bg-green-50 rounded-2xl p-4">
+                                <p class="text-sm text-gray-500 mb-1">Correct</p>
+                                <p class="text-3xl font-bold text-green-600" id="result-correct">0</p>
+                            </div>
+                            <div class="bg-red-50 rounded-2xl p-4">
+                                <p class="text-sm text-gray-500 mb-1">Incorrect</p>
+                                <p class="text-3xl font-bold text-red-500" id="result-incorrect">0</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button onclick="retakeTest()" class="ripple-btn bg-primary text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                                Retake Test
+                            </button>
+                            <a href="dashboard.html" class="ripple-btn bg-white border-2 border-primary text-primary px-8 py-3 rounded-full font-semibold hover:bg-light transition-all">
+                                View Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+    
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
+
+
+
+
+upgrade.html 
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests – ShaktiAcademy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3282B8',
+                        secondary: '#BBE1FA',
+                        dark: '#1B262C',
+                        light: '#F1F6F9',
+                        shadow: '#E0E0E0'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-dark font-sans antialiased">
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    
+    <custom-navbar></custom-navbar>
+
+    <main class="pt-24 pb-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Subject Selection -->
+            <div id="subject-selection" class="animate-fade-in">
+                <h1 class="text-3xl md:text-4xl font-bold mb-2 text-center">Choose Subject</h1>
+                <p class="text-gray-600 text-center mb-10">Select a subject to view chapter-wise tests</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                    <div onclick="showChapters('accounts')" class="subject-select-card cursor-pointer bg-white rounded-2xl p-8 shadow-lg border border-shadow hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i data-feather="book" class="w-7 h-7 text-primary group-hover:text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Accounting</h3>
+                                <p class="text-sm text-gray-500">Principles & Practice</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-600">
+                            <span>12 Chapters</span>
+                            <span class="text-primary font-semibold">45 Tests</span>
+                        </div>
+                    </div>
+
+                    <div onclick="showChapters('law')" class="subject-select-card cursor-pointer bg-white rounded-2xl p-8 shadow-lg border border-shadow hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i data-feather="shield" class="w-7 h-7 text-primary group-hover:text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Business Law</h3>
+                                <p class="text-sm text-gray-500">Laws & Correspondence</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-600">
+                            <span>8 Chapters</span>
+                            <span class="text-primary font-semibold">32 Tests</span>
+                        </div>
+                    </div>
+
+                    <div onclick="showChapters('maths')" class="subject-select-card cursor-pointer bg-white rounded-2xl p-8 shadow-lg border border-shadow hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i data-feather="percent" class="w-7 h-7 text-primary group-hover:text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Quantitative Aptitude</h3>
+                                <p class="text-sm text-gray-500">Maths & Statistics</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-600">
+                            <span>15 Chapters</span>
+                            <span class="text-primary font-semibold">60 Tests</span>
+                        </div>
+                    </div>
+
+                    <div onclick="showChapters('economics')" class="subject-select-card cursor-pointer bg-white rounded-2xl p-8 shadow-lg border border-shadow hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                                <i data-feather="trending-up" class="w-7 h-7 text-primary group-hover:text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Business Economics</h3>
+                                <p class="text-sm text-gray-500">Eco & Commercial Knowledge</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-600">
+                            <span>10 Chapters</span>
+                            <span class="text-primary font-semibold">40 Tests</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter Selection (Hidden initially) -->
+            <div id="chapter-selection" class="hidden animate-fade-in">
+                <button onclick="backToSubjects()" class="mb-6 flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
+                    <i data-feather="arrow-left" class="w-5 h-5"></i> Back to Subjects
+                </button>
+                <h2 id="selected-subject-title" class="text-2xl font-bold mb-6">Accounting Chapters</h2>
+                
+                <div id="chapters-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <!-- Chapters injected via JS -->
+                </div>
+            </div>
+
+            <!-- Test Interface (Hidden initially) -->
+            <div id="test-interface" class="hidden animate-fade-in max-w-3xl mx-auto">
+                <div class="bg-white rounded-3xl shadow-xl border border-shadow overflow-hidden">
+                    <!-- Timer Header -->
+                    <div class="bg-primary text-white p-4 flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <i data-feather="file-text" class="w-5 h-5"></i>
+                            <span id="test-title" class="font-semibold">Chapter 1: Basic Accounting</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-white/20 px-4 py-2 rounded-full">
+                            <i data-feather="clock" class="w-4 h-4"></i>
+                            <span id="timer" class="font-mono font-bold">15:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Timer Progress -->
+                    <div class="h-1 bg-gray-200 w-full">
+                        <div id="timer-bar" class="h-full bg-secondary transition-all duration-1000" style="width: 100%"></div>
+                    </div>
+
+                    <!-- Question Area -->
+                    <div class="p-6 md:p-8">
+                        <div class="mb-6">
+                            <span class="text-sm text-gray-500 mb-2 block">Question <span id="q-current">1</span> of <span id="q-total">20</span></span>
+                            <h3 id="question-text" class="text-lg font-semibold mb-6">Which of the following is not a characteristic of double entry system?</h3>
+                            
+                            <div id="options-container" class="space-y-3">
+                                <!-- Options injected via JS -->
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center pt-6 border-t border-gray-100">
+                            <button onclick="previousQuestion()" class="px-6 py-2 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors disabled:opacity-50" id="btn-prev" disabled>
+                                Previous
+                            </button>
+                            <button onclick="nextQuestion()" class="ripple-btn bg-primary text-white px-8 py-2 rounded-full font-semibold hover:shadow-lg transition-all" id="btn-next">
+                                Next
+                            </button>
+                            <button onclick="submitTest()" class="hidden ripple-btn bg-green-500 text-white px-8 py-2 rounded-full font-semibold hover:shadow-lg transition-all" id="btn-submit">
+                                Submit Test
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section (Hidden initially) -->
+            <div id="results-section" class="hidden animate-fade-in max-w-2xl mx-auto text-center">
+                <div class="bg-white rounded-3xl shadow-xl border border-shadow p-8 md:p-12 relative overflow-hidden">
+                    <!-- Confetti Canvas -->
+                    <canvas id="confetti-canvas" class="absolute inset-0 pointer-events-none"></canvas>
+                    
+                    <div class="relative z-10">
+                        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+                            <i data-feather="check-circle" class="w-12 h-12 text-green-500"></i>
+                        </div>
+                        
+                        <h2 class="text-3xl font-bold mb-2">Test Completed!</h2>
+                        <p class="text-gray-600 mb-8">Great effort! Here's how you performed</p>
+
+                        <div class="grid grid-cols-3 gap-4 mb-8">
+                            <div class="bg-light rounded-2xl p-4">
+                                <p class="text-sm text-gray-500 mb-1">Score</p>
+                                <p class="text-3xl font-bold text-primary"><span id="result-score">0</span>%</p>
+                            </div>
+                            <div class="bg-green-50 rounded-2xl p-4">
+                                <p class="text-sm text-gray-500 mb-1">Correct</p>
+                                <p class="text-3xl font-bold text-green-600" id="result-correct">0</p>
+                            </div>
+                            <div class="bg-red-50 rounded-2xl p-4">
+                                <p class="text-sm text-gray-500 mb-1">Incorrect</p>
+                                <p class="text-3xl font-bold text-red-500" id="result-incorrect">0</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button onclick="retakeTest()" class="ripple-btn bg-primary text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
+                                Retake Test
+                            </button>
+                            <a href="dashboard.html" class="ripple-btn bg-white border-2 border-primary text-primary px-8 py-3 rounded-full font-semibold hover:bg-light transition-all">
+                                View Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+    
+    <script src="script.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>
+
+
+
+
